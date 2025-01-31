@@ -39,10 +39,8 @@ fn create_file() {
 }
 
 fn read_file() {
-    match fs::read_to_string(FILE_NAME) {
-        Ok(content) => println!("{} contains the following text:\n{}", FILE_NAME, content),
-        Err(_) => println!("Could not read file '{}'. It may not exist.", FILE_NAME),
-    }
+    let message: String = fs::read_to_string(FILE_NAME).expect("Unable to read file");
+    println!("The following text in {} is:\n {}",FILE_NAME, message);
 }
 
 fn add_to_file() {
